@@ -4,10 +4,10 @@ import javafx.collections.ObservableList;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Author extends BaseModel<Author> implements Serializable, Cloneable {
+public class Author extends Skeleton<Author> implements Serializable, Cloneable {
     @Serial
     private static final long serialVersionUID = 1234567L;
-    public static final String FILE_PATH = BaseModel.FOLDER_PATH+"authors.ser";
+    public static final String FILE_PATH = Skeleton.FOLDER_PATH+"authors.ser";
     public static final File DATA_FILE = new File(FILE_PATH);
 
     private static final ObservableList<Author> authors = FXCollections.observableArrayList();

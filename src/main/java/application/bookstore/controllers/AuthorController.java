@@ -5,11 +5,9 @@ import application.bookstore.models.Role;
 import application.bookstore.ui.DeleteAuthorDialog;
 import application.bookstore.views.AuthorView;
 import javafx.collections.FXCollections;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AuthorController {
     private final AuthorView view;
@@ -45,11 +43,11 @@ public class AuthorController {
             Author author = new Author(view.getFirstNameField().getText(), view.getLastNameField().getText());
             String res = author.saveInFile();
             if (res.matches("1")) {
-                    ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Author created successfully!");
+                    ControllerCommon.success(view.getMessageLabel(), "Author created successfully!");
                     view.getFirstNameField().setText("");
                     view.getLastNameField().setText("");
             } else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Author creation failed!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Author creation failed!\n" + res);
         });
     }
 
@@ -68,9 +66,9 @@ public class AuthorController {
             Author editedAuthor = new Author(e.getNewValue(), authorToEdit.getLastName());
             String res = editedAuthor.updateInFile(authorToEdit);
             if (res.matches("1"))
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
             else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
         });
 
         view.getLastNameCol().setOnEditCommit(e -> {
@@ -78,9 +76,9 @@ public class AuthorController {
             Author editedAuthor = new Author(authorToEdit.getFirstName(), e.getNewValue());
             String res = editedAuthor.updateInFile(authorToEdit);
             if (res.matches("1"))
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
             else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
         });
     }
 }

@@ -9,7 +9,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 
 public class MainController {
@@ -78,15 +77,15 @@ public class MainController {
 
     private void setLogoutListener() {
         mainView.getMenuItemLogout().setOnAction(e -> {
-            LoginView loginView = new LoginView();
-            new LoginController(loginView, mainStage);
-            Scene scene = new Scene(loginView.getView(), MainView.width, MainView.height);
+            Login login = new Login();
+            new LoginController(login, mainStage);
+            Scene scene = new Scene(login.getView(), MainView.width, MainView.height);
             mainStage.setScene(scene);
         });
         mainView.getLogoutButton().setOnMouseClicked(e -> {
-            LoginView loginView = new LoginView();
-            new LoginController(loginView, mainStage);
-            Scene scene = new Scene(loginView.getView(), MainView.width, MainView.height);
+            Login login = new Login();
+            new LoginController(login, mainStage);
+            Scene scene = new Scene(login.getView(), MainView.width, MainView.height);
             mainStage.setScene(scene);
         });
     }

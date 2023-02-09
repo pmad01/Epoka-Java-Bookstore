@@ -9,10 +9,10 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.logging.Level;
 
-public abstract class BaseModel <V extends BaseModel> {
+public abstract class Skeleton<V extends Skeleton> {
     public static String FOLDER_PATH="data/";
 
-    public static <T extends BaseModel> ObservableList<T> getData(File file, ObservableList<T> data) {
+    public static <T extends Skeleton> ObservableList<T> getData(File file, ObservableList<T> data) {
         if (data.size() == 0) {
             try {
                 FileInputStream fileInputStream = new FileInputStream(file);

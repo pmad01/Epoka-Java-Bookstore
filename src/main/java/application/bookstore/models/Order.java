@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
 
-public class Order extends BaseModel<Order> implements Serializable {
+public class Order extends Skeleton<Order> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1234567L;
-    public static final String FILE_PATH = BaseModel.FOLDER_PATH+"orders.ser";
+    public static final String FILE_PATH = Skeleton.FOLDER_PATH+"orders.ser";
     public static final File DATA_FILE = new File(FILE_PATH);
 
     private static final ObservableList<Order> orders = FXCollections.observableArrayList();

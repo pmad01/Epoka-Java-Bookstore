@@ -3,21 +3,10 @@ package application.bookstore.ui;
 import application.bookstore.controllers.ControllerCommon;
 import application.bookstore.models.Author;
 import application.bookstore.models.Book;
-import application.bookstore.models.User;
 import application.bookstore.views.AuthorView;
-import application.bookstore.views.View;
 import javafx.collections.FXCollections;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.util.List;
@@ -58,10 +47,10 @@ public class DeleteAuthorDialog extends Alert {
                         for (Book b : booksToDelete)
                             b.deleteFromFile();
                     }
-                    ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Author removed successfully");
+                    ControllerCommon.success(view.getMessageLabel(), "Author removed successfully");
                 }
                 else {
-                    ControllerCommon.showErrorMessage(view.getMessageLabel(), "Author deletion failed\n" + res);
+                    ControllerCommon.error(view.getMessageLabel(), "Author deletion failed\n" + res);
                     break;
                 }
             }

@@ -33,11 +33,11 @@ public class UsersController {
             User user = new User(view.getUserNameField().getText(), view.getPasswordField().getText(), view.getRoleComboBox().getValue());
             String res = user.saveInFile();
             if (res.matches("1")) {
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "User created successfully!");
+                ControllerCommon.success(view.getMessageLabel(), "User created successfully!");
                 view.getUserNameField().setText("");
                 view.getPasswordField().setText("");
             } else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "User creation failed!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "User creation failed!\n" + res);
         });
     }
 
@@ -47,9 +47,9 @@ public class UsersController {
             for (User u : itemsToDelete) {
                 String res = u.deleteFromFile();
                 if (res.matches("1"))
-                    ControllerCommon.showSuccessMessage(view.getMessageLabel(), "User removed successfully");
+                    ControllerCommon.success(view.getMessageLabel(), "User removed successfully");
                 else {
-                    ControllerCommon.showErrorMessage(view.getMessageLabel(), "User deletion failed\n" + res);
+                    ControllerCommon.error(view.getMessageLabel(), "User deletion failed\n" + res);
                     break;
                 }
             }
@@ -64,14 +64,14 @@ public class UsersController {
             if (!editedUser.getUsername().equals(userToEdit.getUsername())){
                 if (editedUser.usernameExists()){
                     User.getUsers().set(User.getUsers().indexOf(userToEdit), userToEdit);
-                    ControllerCommon.showErrorMessage(view.getMessageLabel(), "Username Exists!");
+                    ControllerCommon.error(view.getMessageLabel(), "Username Exists!");
                 }
                 else {
                     String res = editedUser.updateInFile(userToEdit);
                     if (res.matches("1"))
-                        ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                        ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
                     else
-                        ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                        ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
                 }
             }
         });
@@ -81,9 +81,9 @@ public class UsersController {
             User editedUser = new User(userToEdit.getUsername(), e.getNewValue(), userToEdit.getRole());
             String res = editedUser.updateInFile(userToEdit);
             if (res.matches("1"))
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
             else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
         });
 
         view.getRoleCol().setOnEditCommit(e -> {
@@ -91,9 +91,9 @@ public class UsersController {
             User editedUser = new User(userToEdit.getUsername(), userToEdit.getPassword(), e.getNewValue());
             String res = editedUser.updateInFile(userToEdit);
             if (res.matches("1"))
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
             else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
         });
     }
 }

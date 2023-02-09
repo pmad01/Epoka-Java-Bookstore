@@ -20,20 +20,20 @@ public class ControllerCommon {
 
     public static final Logger LOGGER = Logger.getLogger( ControllerCommon.class.getName() );
 
-    public static void showSuccessMessage(Label l, String t) {
+    public static void success(Label l, String t) {
         l.setText(t);
         l.setTextFill(Color.DARKGREEN);
-        scheduleLabelReset(l, 5000);
+        resetLabel(l, 5000);
     }
 
-    public static void showErrorMessage(Label l, String t) {
+    public static void error(Label l, String t) {
         l.setText(t);
         l.setTextFill(Color.RED);
-        scheduleLabelReset(l, 5000);
+        resetLabel(l, 5000);
     }
 
 
-    static void scheduleLabelReset(Label l, int time) {
+    static void resetLabel(Label l, int time) {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override

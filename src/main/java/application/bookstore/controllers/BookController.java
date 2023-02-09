@@ -2,12 +2,10 @@ package application.bookstore.controllers;
 
 import application.bookstore.models.Author;
 import application.bookstore.models.Book;
-import application.bookstore.models.User;
 import application.bookstore.views.BookView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BookController {
@@ -61,10 +59,10 @@ public class BookController {
 
             String res = book.saveInFile();
             if (res.matches("1")) {
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Book created successfully!");
+                ControllerCommon.success(view.getMessageLabel(), "Book created successfully!");
                 resetFields();
             } else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Book creation failed!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Book creation failed!\n" + res);
         });
     }
 
@@ -74,9 +72,9 @@ public class BookController {
             for (Book b : itemsToDelete) {
                 String res = b.deleteFromFile();
                 if (res.matches("1")) {
-                    ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Book removed successfully");
+                    ControllerCommon.success(view.getMessageLabel(), "Book removed successfully");
                 } else {
-                    ControllerCommon.showErrorMessage(view.getMessageLabel(), "Book deletion failed\n"+res);
+                    ControllerCommon.error(view.getMessageLabel(), "Book deletion failed\n"+res);
                     break;
                 }
             }
@@ -91,13 +89,13 @@ public class BookController {
             if (!editedBook.getIsbn().equals(bookToEdit.getIsbn())) {
                 if (editedBook.exists()) {
                     Book.getBooks().set(Book.getBooks().indexOf(bookToEdit), bookToEdit);
-                    ControllerCommon.showErrorMessage(view.getMessageLabel(), "Book with this ISBN Exists!");
+                    ControllerCommon.error(view.getMessageLabel(), "Book with this ISBN Exists!");
                 } else {
                     String res = editedBook.updateInFile(bookToEdit);
                     if (res.matches("1"))
-                        ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                        ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
                     else
-                        ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                        ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
                 }
             }
         });
@@ -108,9 +106,9 @@ public class BookController {
             editedBook.setTitle(e.getNewValue());
             String res = editedBook.updateInFile(bookToEdit);
             if (res.matches("1"))
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
             else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
         });
 
         view.getQuantityCol().setOnEditCommit(e -> {
@@ -119,9 +117,9 @@ public class BookController {
             editedBook.setQuantity(e.getNewValue());
             String res = editedBook.updateInFile(bookToEdit);
             if (res.matches("1"))
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
             else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
         });
 
         view.getPurchasedPriceCol().setOnEditCommit(e -> {
@@ -130,9 +128,9 @@ public class BookController {
             editedBook.setPurchasedPrice(e.getNewValue());
             String res = editedBook.updateInFile(bookToEdit);
             if (res.matches("1"))
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
             else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
         });
 
         view.getSellingPriceCol().setOnEditCommit(e -> {
@@ -141,9 +139,9 @@ public class BookController {
             editedBook.setSellingPrice(e.getNewValue());
             String res = editedBook.updateInFile(bookToEdit);
             if (res.matches("1"))
-                ControllerCommon.showSuccessMessage(view.getMessageLabel(), "Edit Successful!");
+                ControllerCommon.success(view.getMessageLabel(), "Edit Successful!");
             else
-                ControllerCommon.showErrorMessage(view.getMessageLabel(), "Edit value invalid!\n" + res);
+                ControllerCommon.error(view.getMessageLabel(), "Edit value invalid!\n" + res);
         });
 
 

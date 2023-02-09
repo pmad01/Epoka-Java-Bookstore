@@ -1,0 +1,19 @@
+Feb 09, 2023 6:22:45 PM application.bookstore.Main main
+INFO: Starting APP...
+Feb 09, 2023 6:22:45 PM application.bookstore.Main loadData
+INFO: Loading data Files...
+Feb 09, 2023 6:22:45 PM application.bookstore.models.Skeleton getData
+INFO: End of data/users.ser file reached!
+Feb 09, 2023 6:22:45 PM application.bookstore.models.Skeleton getData
+INFO: End of data/authors.ser file reached!
+Feb 09, 2023 6:22:45 PM application.bookstore.models.Skeleton getData
+INFO: End of data/books.ser file reached!
+Feb 09, 2023 6:22:45 PM application.bookstore.models.Skeleton getData
+INFO: End of data/orders.ser file reached!
+Feb 09, 2023 6:23:11 PM application.bookstore.controllers.LoginController lambda$addListener$1
+INFO: Logged in with user: 
+User{
+	"username": admin,
+	"password": ******,
+	"role": ADMIN
+}

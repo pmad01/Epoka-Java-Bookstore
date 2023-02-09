@@ -102,17 +102,17 @@ public class ChangePasswordDialog {
                     });
                     d.setOnCloseRequest(e -> newWindow.close());
                 } else {
-                    ControllerCommon.showErrorMessage(messageLabel, "New Password Invalid!\n" + u.isValid());
+                    ControllerCommon.error(messageLabel, "New Password Invalid!\n" + u.isValid());
                 }
             } else {
-                ControllerCommon.showErrorMessage(messageLabel, "New Passwords do not match!");
+                ControllerCommon.error(messageLabel, "New Passwords do not match!");
             }
         } else {
-            ControllerCommon.showErrorMessage(messageLabel, "Old Password Incorrect!");
+            ControllerCommon.error(messageLabel, "Old Password Incorrect!");
         }
     }
 
-    class ConfirmationDialog extends Stage {
+    static class ConfirmationDialog extends Stage {
         Button okButton;
 
         ConfirmationDialog(String message) {

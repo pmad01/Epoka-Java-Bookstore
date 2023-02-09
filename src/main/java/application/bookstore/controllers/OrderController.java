@@ -80,12 +80,12 @@ public class OrderController {
                 } else {
                     orderToEdit.setQuantity(oldVal);
                     orderView.getTableView().getItems().set(orderView.getTableView().getItems().indexOf(orderToEdit), orderToEdit);
-                    ControllerCommon.showErrorMessage(orderView.getResultLabel(), "There are not enough books in stock! Currently there are " + orderToEdit.getBook().getQuantity() + " available.");
+                    ControllerCommon.error(orderView.getResultLabel(), "There are not enough books in stock! Currently there are " + orderToEdit.getBook().getQuantity() + " available.");
                 }
             } else {
                 orderToEdit.setQuantity(oldVal);
                 orderView.getTableView().getItems().set(orderView.getTableView().getItems().indexOf(orderToEdit), orderToEdit);
-                ControllerCommon.showErrorMessage(orderView.getResultLabel(), "Edit value invalid!\n"+"Quantity cannot be negative.");
+                ControllerCommon.error(orderView.getResultLabel(), "Edit value invalid!\n"+"Quantity cannot be negative.");
             }
         });
 
@@ -98,9 +98,9 @@ public class OrderController {
             if (saveResult.matches("1")) {
                 changeStock();
                 new PrintWindow(mainStage, orderView, orderView.getOrder(), this);
-                ControllerCommon.showSuccessMessage(orderView.getResultLabel(), "Order created successfully");
+                ControllerCommon.success(orderView.getResultLabel(), "Order created successfully");
             } else {
-                ControllerCommon.showErrorMessage(orderView.getResultLabel(), "Order  creation failed!\n" + saveResult);
+                ControllerCommon.error(orderView.getResultLabel(), "Order  creation failed!\n" + saveResult);
             }
 
         });

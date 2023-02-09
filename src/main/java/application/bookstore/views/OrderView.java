@@ -75,7 +75,7 @@ public class OrderView extends View {
         setForm();
         setTableView();
 
-        ControllerCommon.showSuccessMessage(messageLabel, "Click on the checkbox add/remove a book.");
+        ControllerCommon.success(messageLabel, "Click on the checkbox add/remove a book.");
 
         VBox tables = new VBox();
         tables.setAlignment(Pos.CENTER);
@@ -151,7 +151,7 @@ public class OrderView extends View {
                         if (new_val){
                             bookOrder.setQuantity(1);
                             if (bookOrder.getQuantity() > bookOrder.getBook().getQuantity()){
-                                ControllerCommon.showErrorMessage(getResultLabel(), "There are not enough books in stock! Currently there are " + b.getQuantity() + " available.");
+                                ControllerCommon.error(getResultLabel(), "There are not enough books in stock! Currently there are " + b.getQuantity() + " available.");
                                 checkBox.selectedProperty().setValue(false);
                             }
                             else {

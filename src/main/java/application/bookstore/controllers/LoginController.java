@@ -1,8 +1,7 @@
 package application.bookstore.controllers;
 
-import application.bookstore.Main;
 import application.bookstore.models.User;
-import application.bookstore.views.LoginView;
+import application.bookstore.views.Login;
 import application.bookstore.views.MainView;
 import application.bookstore.views.View;
 import javafx.scene.Scene;
@@ -16,22 +15,23 @@ public class LoginController {
     private View nextView;
     private User currentUser;
 
-    public LoginController(LoginView view, Stage primaryStage) {
+    public LoginController(Login view, Stage primaryStage) {
         this.primaryStage = primaryStage;
         primaryStage.centerOnScreen();
         primaryStage.setResizable(false);
         addListener(view);
     }
 
-    private void addListener(LoginView view) {
+    private void addListener(Login view) {
+        // lambda function
         view.getView().setOnKeyPressed(e -> {
             if (e.getCode().equals(KeyCode.ENTER)) {
-                view.getLoginBtn().fire();
+                view.get_login_().fire();
             }
         });
 
-        view.getLoginBtn().setOnAction(e -> {
-            String password = view.getPasswordField().getText();
+        view.get_login_().setOnAction(e -> {
+            String password = view.get_password_().getText();
             String username = view.getUsernameField().getText();
             User potentialUser = new User(username, password);
             if ((currentUser = User.getIfExists(potentialUser)) != null) {
@@ -42,7 +42,7 @@ public class LoginController {
                 primaryStage.setScene(new Scene(nextView.getView(), MainView.width, MainView.height));
                 primaryStage.centerOnScreen();
             } else
-                ControllerCommon.showErrorMessage(view.getErrorLabel(), "Wrong username or password");
+                ControllerCommon.error(view.get_error_(), "Wrong username or password");
         });
     }
 }
