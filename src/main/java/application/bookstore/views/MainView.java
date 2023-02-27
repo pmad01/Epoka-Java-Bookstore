@@ -3,7 +3,6 @@ package application.bookstore.views;
 import application.bookstore.controllers.MainController;
 import application.bookstore.models.Role;
 import application.bookstore.ui.LogoutButton;
-import application.bookstore.ui.ProfileButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -29,20 +28,13 @@ public class MainView extends View {
     private final Menu salesMenu = new Menu("_Sales");
     private final MenuItem menuItemNewOrder = new MenuItem("New Order");
     private final MenuItem menuItemViewSales = new MenuItem("View Sales");
-    private final MenuItem statsMenu = new MenuItem("View Sales Analysis");
-
     private final Menu controlMenu = new Menu("Administration");
     private final MenuItem menuItemProfile = new MenuItem("My Profile");
     private final MenuItem menuItemChangePassword = new MenuItem("Change Password");
-    private final MenuItem menuItemSettings = new MenuItem("App Settings");
     private final MenuItem manageUsers = new MenuItem("Manage Users");
     private final MenuItem menuItemLogout = new MenuItem("Logout");
-
     private final LogoutButton logoutButton = new LogoutButton();
-    private final ProfileButton userProfileButton = new ProfileButton();
-
     private final TabPane tabPane = new TabPane();
-
     public MainView(Stage mainStage) {
         new MainController(this, mainStage);
     }
@@ -57,12 +49,12 @@ public class MainView extends View {
             salesMenu.getItems().add(menuItemNewOrder);
             menuBar.getMenus().addAll(booksMenu, salesMenu);
             menuBar.getMenus().add(controlMenu);
-            controlMenu.getItems().addAll(menuItemProfile, menuItemChangePassword);
+            controlMenu.getItems().addAll(menuItemChangePassword);
             if (currentRole == Role.ADMIN) {
-                controlMenu.getItems().addAll(manageUsers, menuItemSettings);
+                controlMenu.getItems().addAll(manageUsers);
             }
             if (currentRole == Role.MANAGER || currentRole == Role.ADMIN) {
-                salesMenu.getItems().addAll(menuItemViewSales, statsMenu);
+                salesMenu.getItems().addAll(menuItemViewSales);
             }
             controlMenu.getItems().add(menuItemLogout);
 
@@ -78,7 +70,7 @@ public class MainView extends View {
         final Pane spacer_ = new Pane();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         HBox.setHgrow(spacer_, Priority.ALWAYS);
-        bottomControls.getChildren().addAll(userProfileButton, spacer_, new Text("Hi "+getCurrentUser().getUsername() + ", welcome to our bookstore."), spacer, logoutButton);
+        bottomControls.getChildren().addAll(spacer_, new Text("Hi "+getCurrentUser().getUsername() + ", welcome to our bookstore."), spacer, logoutButton);
         VBox b = new VBox(bottomControls);
         b.setMinHeight(30);
 
@@ -122,10 +114,6 @@ public class MainView extends View {
         return manageUsers;
     }
 
-    public MenuItem getStatsMenu() {
-        return statsMenu;
-    }
-
     public MenuItem getMenuItemProfile() {
         return menuItemProfile;
     }
@@ -134,20 +122,12 @@ public class MainView extends View {
         return menuItemChangePassword;
     }
 
-    public MenuItem getMenuItemSettings() {
-        return menuItemSettings;
-    }
-
     public MenuItem getMenuItemLogout() {
         return menuItemLogout;
     }
 
     public LogoutButton getLogoutButton() {
         return logoutButton;
-    }
-
-    public ProfileButton getUserProfileButton() {
-        return userProfileButton;
     }
 
     public TabPane getTabPane() {

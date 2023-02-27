@@ -138,12 +138,6 @@ public class BookView extends View {
                 new PropertyValueFactory<>("author")
         );
 
-        // currently not editable
-//        ArrayList<String> authors = new ArrayList<String>();
-//        for (Author a:Author.getAuthors())
-//            authors.add(a.getFullName());
-//        authorCol.setCellFactory(ComboBoxTableCell.forTableColumn(authors));
-
         tableView.getColumns().addAll(isbnCol, titleCol, quantityCol, purchasedPriceCol, sellingPriceCol, authorCol);
     }
 

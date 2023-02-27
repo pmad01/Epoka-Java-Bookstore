@@ -46,14 +46,16 @@ public class Main extends Application {
             ControllerCommon.LOGGER.info("Starting");
             new File(Skeleton.FOLDER_PATH).mkdirs();
             // create nwe user as admin
-            User _user = new User("admin", "admin", Role.ADMIN);
+            User _admin = new User("admin", "admin", Role.ADMIN);
             // log into file
-            ControllerCommon.LOGGER.log(Level.INFO, _user.saveInFile());
+            ControllerCommon.LOGGER.log(Level.INFO, _admin.saveInFile());
             // create new user as manager
-            _user = new User("manager", "manager", Role.MANAGER);
-            ControllerCommon.LOGGER.log(Level.INFO, _user.saveInFile());
-            _user = new User("librarian", "librarian", Role.LIBRARIAN);
-            ControllerCommon.LOGGER.log(Level.INFO, _user.saveInFile());
+            User _manager = new User("manager", "manager", Role.MANAGER);
+            ControllerCommon.LOGGER.log(Level.INFO, _manager.saveInFile());
+
+            User _librarian = new User("librarian", "librarian", Role.LIBRARIAN);
+            ControllerCommon.LOGGER.log(Level.INFO, _librarian.saveInFile());
+
             Author a = new Author("Albert", "Camus");
             // save author in data folder
             a.saveInFile();

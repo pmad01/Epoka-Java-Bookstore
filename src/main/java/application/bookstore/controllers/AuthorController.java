@@ -42,6 +42,7 @@ public class AuthorController {
         view.getSaveBtn().setOnAction(e -> {
             Author author = new Author(view.getFirstNameField().getText(), view.getLastNameField().getText());
             String res = author.saveInFile();
+            System.out.println(res);
             if (res.matches("1")) {
                     ControllerCommon.success(view.getMessageLabel(), "Author created successfully!");
                     view.getFirstNameField().setText("");

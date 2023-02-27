@@ -1,6 +1,5 @@
 package application.bookstore.controllers;
 
-import application.bookstore.ui.ChangePasswordDialog;
 import application.bookstore.views.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -57,10 +56,6 @@ public class MainController {
         mainView.getMenuItemViewBooks().setOnAction((e) -> openTab("Books", new BookView().getView()));
 
         mainView.getMenuItemViewSales().setOnAction(e -> openTab("Sales", new SalesView(mainStage).getView()));
-
-        mainView.getStatsMenu().setOnAction(e -> openTab("Stats", new StatsView().getView()));
-
-        mainView.getMenuItemChangePassword().setOnAction(e -> new ChangePasswordDialog(mainStage, mainView));
 
         mainView.getManageUsers().setOnAction(e -> openTab("Users", new UsersView().getView()));
 

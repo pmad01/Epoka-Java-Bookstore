@@ -11,6 +11,5 @@ public class CustomObjectOutputStream extends ObjectOutputStream {
     }
 
     public void writeStreamHeader() {
-        // don't do anything
     }
 }

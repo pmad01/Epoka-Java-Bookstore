@@ -98,7 +98,7 @@ public class Author extends Skeleton<Author> implements Serializable, Cloneable 
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName = firstName.trim();
     }
 
     public String getLastName() {
@@ -106,7 +106,7 @@ public class Author extends Skeleton<Author> implements Serializable, Cloneable 
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName = lastName.trim();
     }
 
     public String getFullName() {

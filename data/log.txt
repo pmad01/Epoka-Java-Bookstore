@@ -1,19 +1,21 @@
-Feb 09, 2023 6:22:45 PM application.bookstore.Main main
+Feb 14, 2023 9:54:47 AM application.bookstore.Main main
 INFO: Starting APP...
-Feb 09, 2023 6:22:45 PM application.bookstore.Main loadData
+Feb 14, 2023 9:54:47 AM application.bookstore.Main loadData
 INFO: Loading data Files...
-Feb 09, 2023 6:22:45 PM application.bookstore.models.Skeleton getData
+Feb 14, 2023 9:54:47 AM application.bookstore.models.Skeleton getData
 INFO: End of data/users.ser file reached!
-Feb 09, 2023 6:22:45 PM application.bookstore.models.Skeleton getData
+Feb 14, 2023 9:54:47 AM application.bookstore.models.Skeleton getData
 INFO: End of data/authors.ser file reached!
-Feb 09, 2023 6:22:45 PM application.bookstore.models.Skeleton getData
+Feb 14, 2023 9:54:47 AM application.bookstore.models.Skeleton getData
 INFO: End of data/books.ser file reached!
-Feb 09, 2023 6:22:45 PM application.bookstore.models.Skeleton getData
+Feb 14, 2023 9:54:47 AM application.bookstore.models.Skeleton getData
 INFO: End of data/orders.ser file reached!
-Feb 09, 2023 6:23:11 PM application.bookstore.controllers.LoginController lambda$addListener$1
+Feb 14, 2023 9:54:53 AM application.bookstore.controllers.LoginController lambda$addListener$1
 INFO: Logged in with user: 
 User{
 	"username": admin,
 	"password": ******,
 	"role": ADMIN
 }
+Feb 14, 2023 9:55:06 AM application.bookstore.models.Order print
+INFO: [java.base/java.io.FileOutputStream.open0(Native Method), java.base/java.io.FileOutputStream.open(FileOutputStream.java:295), java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:236), java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:185), java.base/java.io.PrintWriter.<init>(PrintWriter.java:316), application.bookstore/application.bookstore.models.Order.print(Order.java:69), application.bookstore/application.bookstore.ui.PrintWindow.lambda$new$1(PrintWindow.java:63), javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86), javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234), javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191), javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59), javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58), javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56), javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56), javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56), javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74), javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54), javafx.base/javafx.event.Event.fireEvent(Event.java:198), javafx.graphics/javafx.scene.Scene$MouseHandler.process(Scene.java:3861), javafx.graphics/javafx.scene.Scene.processMouseEvent(Scene.java:1854), javafx.graphics/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2587), javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409), javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299), java.base/java.security.AccessController.doPrivileged(AccessController.java:399), javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447), javafx.graphics/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:413), javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446), javafx.graphics/com.sun.glass.ui.View.handleMouseEvent(View.java:556), javafx.graphics/com.sun.glass.ui.View.notifyMouse(View.java:942), javafx.graphics/com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method), javafx.graphics/com.sun.glass.ui.gtk.GtkApplication.lambda$runLoop$11(GtkApplication.java:277), java.base/java.lang.Thread.run(Thread.java:1589)]

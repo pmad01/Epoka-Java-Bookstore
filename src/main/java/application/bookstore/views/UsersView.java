@@ -44,13 +44,11 @@ public class UsersView extends View {
 
     @Override
     public Parent getView() {
-        // user controls
         messageLabel.setTextAlignment(TextAlignment.CENTER);
         VBox controls = new VBox();
         controls.setAlignment(Pos.CENTER);
         controls.setSpacing(5);
         controls.getChildren().addAll(formPane, messageLabel);
-        //
         mainPane.setTop(searchView.getSearchPane());
         mainPane.setCenter(tableView);
         mainPane.setBottom(controls);

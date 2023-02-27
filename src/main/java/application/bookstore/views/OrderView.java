@@ -7,7 +7,6 @@ import application.bookstore.models.BookOrder;
 import application.bookstore.models.Order;
 import application.bookstore.ui.ClearButton;
 import application.bookstore.ui.CreateButton;
-import application.bookstore.ui.ProfileButton;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -18,7 +17,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
@@ -80,7 +78,7 @@ public class OrderView extends View {
         VBox tables = new VBox();
         tables.setAlignment(Pos.CENTER);
         VBox.setVgrow(existingBooksViewPane, Priority.ALWAYS);
-        VBox.setVgrow(tableView, Priority.ALWAYS); // make the tables expand
+        VBox.setVgrow(tableView, Priority.ALWAYS);
         tables.getChildren().add(existingBooksViewPane);
         tables.getChildren().add(tableView);
 
@@ -109,13 +107,6 @@ public class OrderView extends View {
     }
 
     private void setTableView() {
-        selectorCol.setGraphic(new ImageView(String.valueOf(ProfileButton.class.getResource("/images/selector.png"))));
-        selectorCol.setMinWidth(30);
-        selectorCol.setMaxWidth(30);;
-        selectorCol_.setGraphic(new ImageView(String.valueOf(ProfileButton.class.getResource("/images/selector.png"))));
-        selectorCol_.setMinWidth(30);
-        selectorCol_.setMaxWidth(30);
-
 
         selectorCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<BookOrder, CheckBox>, ObservableValue<CheckBox>>() {
             @Override
@@ -171,7 +162,6 @@ public class OrderView extends View {
         selectorCol.setSortable(false);
         selectorCol_.setSortable(false);
 
-        // we save a copy to not affect other orders or the original books
         ArrayList<Book> copyOfBooks =  new ArrayList<>(Book.getBooks());
         existingBooksView.getTableView().setItems(FXCollections.observableArrayList(copyOfBooks));
         existingBooksView.getTableView().getColumns().add(0, selectorCol_);
